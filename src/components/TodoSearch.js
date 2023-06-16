@@ -1,9 +1,12 @@
-import React from "react";
+import React from 'react';
+import '../styles/TodoSearch.css';
 
-function TodoSearch(){
-    return(
-        <input placeholder="rose" />
-    )
-};
+function TodoSearch() {
+	return (
+		<section className="todo-search">
+			<input  className='todo-search__input'placeholder="rose" />
+		</section>
+	);
+}
 
-export {TodoSearch};
+export { TodoSearch };

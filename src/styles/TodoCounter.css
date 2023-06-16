@@ -1,0 +1,15 @@
+.todo-counter {
+    height: 13vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.todo-counter h2 {
+    color: white;
+    font-size: 2rem;
+    font-weight: 200;
+    text-align: left;
+    text-transform: uppercase;
+    width: 40rem;
+}

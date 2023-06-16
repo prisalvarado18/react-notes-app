@@ -1,0 +1,13 @@
+.todo-search {
+    height: 7vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.todo-search__input {
+    height: 80%;
+    width: 20rem;
+    border-radius: 1.5rem;
+    border: none;
+}

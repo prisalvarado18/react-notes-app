@@ -1,7 +1,12 @@
 import React from 'react';
+import '../styles/TodoCounter.css';
 
 function TodoCounter() {
-    return <h2>You've completed 2 out of 3 TODOs</h2>;
+	return (
+		<section className="todo-counter">
+			<h2>completed 3 out of 5</h2>
+		</section>
+	);
 }
 
 export { TodoCounter };

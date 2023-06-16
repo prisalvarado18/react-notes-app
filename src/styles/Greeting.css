@@ -1,0 +1,12 @@
+.greeting {
+    height: 24vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.greeting h2 {
+    color: white;
+    font-size: 3.5rem;
+    font-weight: 500;
+}
