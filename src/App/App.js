@@ -1,13 +1,8 @@
-import React, { useState } from 'react';
-import '../styles/MainContent.css';
-import '../styles/Variables.css';
+import React, {useState} from 'react';
 
-import { Greeting } from './Greeting';
-import { TodoCounter } from './TodoCounter';
-import { TodoSearch } from './TodoSearch';
-import { TodoList } from './TodoList';
-import { TodoItem } from './TodoItem';
-import { TodoButton } from './TodoButton';
+import '../styles/App.css';
+import { AppUI } from './AppUI';
+
 
 const defaultTodos = [
 	{ text: 'Study react', completed: true },
@@ -15,7 +10,8 @@ const defaultTodos = [
 	{ text: 'Read a book', completed: false },
 ];
 
-function MainContent() {
+function App() {
+
 	const [todos, setTodos] = useState(defaultTodos);
 	const [searchValue, setSearchValue] = useState('');
 
@@ -51,30 +47,20 @@ function MainContent() {
 		setTodos(newTodos);
 	};
 
+	
 	return (
-		<main style={{ backgroundColor: 'var(--secondary-color)' }}>
-			<Greeting />
-			<TodoSearch
+		<>
+			<AppUI 
 				searchValue={searchValue}
 				setSearchValue={setSearchValue}
+				totalTodos={totalTodos} 
+				completedTodos={completedTodos} 
+				searchedTodos={searchedTodos}
+				completeTodo={completeTodo}
+				deleteTodo={deleteTodo}
 			/>
-			<TodoCounter total={totalTodos} completed={completedTodos} />
-
-			<TodoList>
-				{searchedTodos.map((todo) => (
-					<TodoItem
-						key={todo.text}
-						text={todo.text}
-						completed={todo.completed}
-						onComplete={()=> completeTodo(todo.text)}
-						onDelete={()=> deleteTodo(todo.text)}
-					/>
-				))}
-			</TodoList>
-
-			<TodoButton />
-		</main>
+		</>
 	);
 }
 
-export { MainContent };
+export default App;
