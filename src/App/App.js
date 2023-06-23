@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { AppUI } from './AppUI';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import '../styles/App.css';
@@ -21,7 +21,12 @@ function App() {
 		parsedTodos = JSON.parse(localStorageTodos);
 	}*/
 
-	const [todos, saveTodos] = useLocalStorage('TODOS_V1', []/*parsedTodos*/);
+	const {
+		item:todos, 
+		saveItem:saveTodos, 
+		loading,
+		error
+	} = useLocalStorage('TODOS_V1', []/*parsedTodos*/);
 	const [searchValue, setSearchValue] = useState('');
 
 	const completedTodos = todos.filter((todo) => !!todo.completed).length;
@@ -63,10 +68,19 @@ function App() {
 		saveTodos(newTodos);
 	};
 
-	
+	/*console.log('Antes');
+	useEffect(()=>{
+		console.log('Use effect')
+	}, [totalTodos]);
+	//Cuando cambie totalTodos
+	//[]Solo se ejecuta la primera vez que se ejecute nuestro componente
+	console.log('Despues');*/
+
 	return (
 		<>
 			<AppUI 
+				loading={loading}
+				error={error}
 				searchValue={searchValue}
 				setSearchValue={setSearchValue}
 				totalTodos={totalTodos} 
